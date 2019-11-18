@@ -3,8 +3,6 @@ package ea.sof.ms_content_filter.listeners;
 import com.google.gson.Gson;
 import ea.sof.ms_content_filter.util.FilterBadWords;
 import ea.sof.shared.entities.CommentAnswerEntity;
-import ea.sof.shared.models.Answer;
-import ea.sof.shared.models.CommentAnswer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.annotation.KafkaListener;
