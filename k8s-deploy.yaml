@@ -16,12 +16,72 @@ spec:
     spec:
       containers:
         - name: content-filter-ms
-          image: islamahmad/content-filter-ms:1.0.0
-          ports:
-            - containerPort: 8080
+          image: islamahmad/eaproj-content-filter-ms:1.0.0
           env:
-            - name: AUTHENTICATE_SERVICE
+            #KAFKA
+            - name: KAFKA_BOOTSTRAP_SERVERS
               valueFrom:
                 configMapKeyRef:
-                  name: content-filter-ms
-                  key: AUTHENTICATE_SERVICE
+                  name: kafka-global
+                  key: KAFKA_BOOTSTRAP_SERVERS
+
+            - name: TOPIC_BAN_QUESTION
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_BAN_QUESTION
+            - name: TOPIC_BAN_ANSWER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_BAN_ANSWER
+            - name: TOPIC_BAN_QUESTION_COMMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_BAN_QUESTION_COMMENT
+            - name: TOPIC_BAN_ANSWER_COMMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_BAN_ANSWER_COMMENT
+            - name: TOPIC_NEW_QUESTION
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_NEW_QUESTION
+            - name: SUBS_NEW_QUESTION_FILTER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: SUBS_NEW_QUESTION_FILTER
+            - name: TOPIC_NEW_ANSWER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_NEW_ANSWER
+            - name: SUBS_NEW_ANSWER_FILTER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: SUBS_NEW_ANSWER_FILTER
+            - name: TOPIC_NEW_QUESTION_COMMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_NEW_QUESTION_COMMENT
+            - name: SUBS_NEW_QUESTION_COMMENT_FILTER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: SUBS_NEW_QUESTION_COMMENT_FILTER
+            - name: TOPIC_NEW_ANSWER_COMMENT
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: TOPIC_NEW_ANSWER_COMMENT
+            - name: SUBS_NEW_ANSWER_COMMENT_FILTER
+              valueFrom:
+                configMapKeyRef:
+                  name: kafka-global
+                  key: SUBS_NEW_ANSWER_COMMENT_FILTER

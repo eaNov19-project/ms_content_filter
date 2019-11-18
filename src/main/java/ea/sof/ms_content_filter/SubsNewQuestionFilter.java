@@ -29,6 +29,9 @@ public class SubsNewQuestionFilter {
 
 		boolean banThisQuestion = false;
 
+		if (question.getTitle().indexOf("fuck") >= 0) banThisQuestion = true;
+		if (question.getBody().indexOf("fuck") >= 0) banThisQuestion = true;
+
 		if (banThisQuestion){
 			kafkaTemplate.send(env.getProperty("topicBanQuestion"), question.getId());
 		}

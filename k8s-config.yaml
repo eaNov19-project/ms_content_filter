@@ -6,4 +6,3 @@ metadata:
 data:
   SEVER_PORT: "8080"
   AUTHENTICATE_SERVICE: "authentication-service.default.svc.cluster.local:8080"
-  KAFKA_BOOTSTRAP_SERVERS: "34.70.124.18:31090,34.68.183.147:31090,35.223.233.128:31090"
