@@ -1,6 +1,7 @@
-package ea.sof.ms_content_filter;
+package ea.sof.ms_content_filter.listeners;
 
 import com.google.gson.Gson;
+import ea.sof.ms_content_filter.util.FilterBadWords;
 import ea.sof.shared.entities.CommentAnswerEntity;
 import ea.sof.shared.models.Answer;
 import ea.sof.shared.models.CommentAnswer;
@@ -17,6 +18,7 @@ public class SubsNewAnswerCommentFilter {
 
 	@Autowired
 	private Environment env;
+	private FilterBadWords filterBadWords;
 
 	@KafkaListener(topics = "${topicNewAnswerComment}", groupId = "${subsNewAnswerCommentFilter}")
 	public void newAnswerComment(String message) {
@@ -28,7 +30,7 @@ public class SubsNewAnswerCommentFilter {
 
 		System.out.println("SubsNewAnswerCommentFilter: As object: " + answerComment);
 
-		boolean banThisAnswerComment = false;
+		boolean banThisAnswerComment = filterBadWords.filterBadWords(answerComment.getBody());
 
 		if (banThisAnswerComment){
 			kafkaTemplate.send(env.getProperty("topicBanAnswerComment"), answerComment.getId());
