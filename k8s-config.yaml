@@ -5,4 +5,4 @@ metadata:
   namespace: default
 data:
   SEVER_PORT: "8080"
-  AUTHENTICATE_SERVICE: "authentication-service.default.svc.cluster.local:8080"
+  AUTHENTICATE_SERVICE: "auth-ms-service.default.svc.cluster.local:8080"
