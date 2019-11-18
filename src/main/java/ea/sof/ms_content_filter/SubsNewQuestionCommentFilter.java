@@ -1,6 +1,8 @@
 package ea.sof.ms_content_filter;
 
 import com.google.gson.Gson;
+import ea.sof.shared.entities.CommentQuestionEntity;
+import ea.sof.shared.models.CommentQuestion;
 import ea.sof.shared.models.Question;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
@@ -22,7 +24,7 @@ public class SubsNewQuestionCommentFilter {
 		System.out.println("SubsNewQuestionCommentFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
-		QuestionComment questionComment =  gson.fromJson(message, QuestionComment.class);
+		CommentQuestionEntity questionComment =  gson.fromJson(message, CommentQuestionEntity.class);
 
 		System.out.println("SubsNewQuestionCommentFilter: As object: " + questionComment);
 

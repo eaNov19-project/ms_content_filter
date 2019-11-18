@@ -1,7 +1,9 @@
 package ea.sof.ms_content_filter;
 
 import com.google.gson.Gson;
+import ea.sof.shared.entities.CommentAnswerEntity;
 import ea.sof.shared.models.Answer;
+import ea.sof.shared.models.CommentAnswer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -22,7 +24,7 @@ public class SubsNewAnswerCommentFilter {
 		System.out.println("SubsNewAnswerCommentFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
-		AnswerComment answerComment =  gson.fromJson(message, AnswerComment.class);
+		CommentAnswerEntity answerComment =  gson.fromJson(message, CommentAnswerEntity.class);
 
 		System.out.println("SubsNewAnswerCommentFilter: As object: " + answerComment);
 

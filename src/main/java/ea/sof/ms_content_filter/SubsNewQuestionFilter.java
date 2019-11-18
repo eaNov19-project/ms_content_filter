@@ -2,6 +2,7 @@ package ea.sof.ms_content_filter;
 
 import com.google.gson.Gson;
 import ea.sof.shared.models.Question;
+import ea.sof.shared.queue_models.QuestionQueueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -22,7 +23,7 @@ public class SubsNewQuestionFilter {
 		System.out.println("SubsNewQuestionFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
-		Question question =  gson.fromJson(message, Question.class);
+		QuestionQueueModel question =  gson.fromJson(message, QuestionQueueModel.class);
 
 		System.out.println("SubsNewQuestionFilter: As object: " + question);
 

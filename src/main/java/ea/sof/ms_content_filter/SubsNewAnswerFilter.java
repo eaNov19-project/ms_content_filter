@@ -3,6 +3,7 @@ package ea.sof.ms_content_filter;
 import com.google.gson.Gson;
 import ea.sof.shared.models.Answer;
 import ea.sof.shared.models.Question;
+import ea.sof.shared.queue_models.AnswerQueueModel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.env.Environment;
 import org.springframework.kafka.annotation.KafkaListener;
@@ -23,7 +24,7 @@ public class SubsNewAnswerFilter {
 		System.out.println("SubsNewAnswerFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
-		Answer answer =  gson.fromJson(message, Answer.class);
+		AnswerQueueModel answer =  gson.fromJson(message, AnswerQueueModel.class);
 
 		System.out.println("SubsNewAnswerFilter: As object: " + answer);
 
