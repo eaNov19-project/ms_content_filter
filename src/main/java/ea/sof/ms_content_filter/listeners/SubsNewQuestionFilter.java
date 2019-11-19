@@ -35,8 +35,11 @@ public class SubsNewQuestionFilter {
 
 		boolean banThisQuestion = false;
 
-		if (filterBadWords.filterBadWords(question.getTitle())) banThisQuestion = true;
-		if (filterBadWords.filterBadWords(question.getBody()))  banThisQuestion = true;
+		if (filterBadWords.filterBadWords(question.getTitle())) {
+			banThisQuestion = true;
+		} else if (filterBadWords.filterBadWords(question.getBody())) {
+			banThisQuestion = true;
+		}
 
 		if (banThisQuestion){
 			kafkaTemplate.send(env.getProperty("topicBanQuestion"), question.getId());

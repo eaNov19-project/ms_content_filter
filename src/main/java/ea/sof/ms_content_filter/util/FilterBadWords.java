@@ -12,11 +12,11 @@ public class FilterBadWords {
     private static final Logger LOGGER = LoggerFactory.getLogger(FilterBadWords.class);
     public boolean filterBadWords(String content)  {
         try {
-            Scanner scanner = new Scanner(new File(BAD_WORD_FILE_PATH));
+            Scanner scanner = new Scanner(new File(getClass().getClassLoader().getResource(BAD_WORD_FILE_PATH).getFile()));
             while (scanner.hasNextLine()) {
                 String line = scanner.nextLine();
                 if (content.contains(line)) {
-                    return false;
+                    return true;
                 }
             }
         }catch (FileNotFoundException ex){
