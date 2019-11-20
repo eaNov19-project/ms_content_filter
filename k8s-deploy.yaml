@@ -16,7 +16,7 @@ spec:
     spec:
       containers:
         - name: content-filter-ms
-          image: islamahmad/eaproj-content-filter-ms:1.0.0
+          image: islamahmad/eaproj-content-filter-ms:1.0.1
           env:
             #KAFKA
             - name: KAFKA_BOOTSTRAP_SERVERS
