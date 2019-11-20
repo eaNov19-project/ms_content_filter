@@ -1,4 +1,4 @@
-img="islamahmad/eaproj-content-filter-ms:1.0.9"
+img="islamahmad/eaproj-content-filter-ms:1.0.10"
 
 build:
 	docker build -t $(img) .
