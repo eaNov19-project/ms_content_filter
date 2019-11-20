@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: content-filter-ms
-  namespace: default
-data:
-  SEVER_PORT: "8080"

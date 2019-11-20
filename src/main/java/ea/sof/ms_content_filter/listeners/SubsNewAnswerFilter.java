@@ -25,13 +25,11 @@ public class SubsNewAnswerFilter {
 	public void newAnswer(String message) {
 
 		LOGGER.info("SubsNewAnswerFilter: New message from topic: " + message);
-		System.out.println("SubsNewAnswerFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
 		AnswerQueueModel answer =  gson.fromJson(message, AnswerQueueModel.class);
 
-		LOGGER.info("SubsNewAnswerFilter: As object: " + answer);
-		System.out.println("SubsNewAnswerFilter: As object: " + answer);
+//		LOGGER.info("SubsNewAnswerFilter: As object: " + answer);
 
 		boolean banThisAnswer = filterBadWords.filterBadWords(answer.getBody());
 

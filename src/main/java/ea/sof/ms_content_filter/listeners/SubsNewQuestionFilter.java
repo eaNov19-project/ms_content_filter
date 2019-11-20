@@ -23,15 +23,12 @@ public class SubsNewQuestionFilter {
 
 	@KafkaListener(topics = "${topicNewQuestion}", groupId = "${subsNewQuestionFilter}")
 	public void newQuestion(String message) {
-
 		LOGGER.info("SubsNewQuestionFilter: New message from topic: " + message);
-		System.out.println("SubsNewQuestionFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
 		QuestionQueueModel question =  gson.fromJson(message, QuestionQueueModel.class);
 
-		LOGGER.info("SubsNewQuestionFilter: As object: " + question);
-		System.out.println("SubsNewQuestionFilter: As object: " + question);
+//		LOGGER.info("SubsNewQuestionFilter: As object: " + question);
 
 		boolean banThisQuestion = false;
 

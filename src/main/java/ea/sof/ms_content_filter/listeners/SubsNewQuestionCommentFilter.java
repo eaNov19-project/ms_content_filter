@@ -25,13 +25,11 @@ public class SubsNewQuestionCommentFilter {
 	public void newQuestionComment(String message) {
 
 		LOGGER.info("SubsNewQuestionCommentFilter: New message from topic: " + message);
-		System.out.println("SubsNewQuestionCommentFilter: New message from topic: " + message);
 
 		Gson gson = new Gson();
 		CommentQuestionEntity questionComment =  gson.fromJson(message, CommentQuestionEntity.class);
 
-		LOGGER.info("SubsNewQuestionCommentFilter: As object: " + questionComment);
-		System.out.println("SubsNewQuestionCommentFilter: As object: " + questionComment);
+//		LOGGER.info("SubsNewQuestionCommentFilter: As object: " + questionComment);
 
 		boolean banThisQuestionComment = filterBadWords.filterBadWords(questionComment.getBody());
 
