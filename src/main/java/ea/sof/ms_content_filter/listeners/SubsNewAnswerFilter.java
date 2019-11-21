@@ -34,6 +34,7 @@ public class SubsNewAnswerFilter {
 		boolean banThisAnswer = filterBadWords.filterBadWords(answer.getBody());
 
 		if (banThisAnswer){
+
 			kafkaTemplate.send(env.getProperty("topicBanAnswer"), answer.getId());
 			LOGGER.info("SubsNewAnswerFilter: Banned answerId=" + answer.getId());
 		}
